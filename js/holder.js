@@ -1,7 +1,7 @@
 /*!
 
 Holder - 2.3.2 - client side image placeholders
-(c) 2012-2014 Ivan Malopinsky / http://imsky.co
+(c) 2012-2014 Ivan Malopinsky / https://imsky.co
 
 Provided under the MIT License.
 Commercial use requires attribution.
@@ -32,7 +32,7 @@ if (!canvas.getContext) {
 	}
 }
 
-if(!!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect){
+if(!!document.createElementNS && !!document.createElementNS('https://www.w3.org/2000/svg', 'svg').createSVGRect){
 	system_config.use_svg = true;
 	system_config.use_canvas = false;
 }
@@ -153,11 +153,11 @@ var svg_el = (function(){
 	//Prevent IE <9 from initializing SVG renderer
 	if(!window.XMLSerializer) return;
 	var serializer = new XMLSerializer();
-	var svg_ns = "http://www.w3.org/2000/svg"
+	var svg_ns = "https://www.w3.org/2000/svg"
 	var svg = document.createElementNS(svg_ns, "svg");
 	//IE throws an exception if this is set and Chrome requires it to be set
 	if(svg.webkitMatchesSelector){
-		svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+		svg.setAttribute("xmlns", "https://www.w3.org/2000/svg")
 	}
 	var bg_el = document.createElementNS(svg_ns, "rect")
 	var text_el = document.createElementNS(svg_ns, "text")
@@ -624,7 +624,7 @@ document.getElementsByClassName||(document.getElementsByClassName=function(e){va
 //getComputedStyle polyfill
 window.getComputedStyle||(window.getComputedStyle=function(e){return this.el=e,this.getPropertyValue=function(t){var n=/(\-([a-z]){1})/g;return t=="float"&&(t="styleFloat"),n.test(t)&&(t=t.replace(n,function(){return arguments[2].toUpperCase()})),e.currentStyle[t]?e.currentStyle[t]:null},this})
 
-//http://javascript.nwbox.com/ContentLoaded by Diego Perini with modifications
+//https://javascript.nwbox.com/ContentLoaded by Diego Perini with modifications
 function contentLoaded(n,t){var l="complete",s="readystatechange",u=!1,h=u,c=!0,i=n.document,a=i.documentElement,e=i.addEventListener?"addEventListener":"attachEvent",v=i.addEventListener?"removeEventListener":"detachEvent",f=i.addEventListener?"":"on",r=function(e){(e.type!=s||i.readyState==l)&&((e.type=="load"?n:i)[v](f+e.type,r,u),!h&&(h=!0)&&t.call(n,null))},o=function(){try{a.doScroll("left")}catch(n){setTimeout(o,50);return}r("poll")};if(i.readyState==l)t.call(n,"lazy");else{if(i.createEventObject&&a.doScroll){try{c=!n.frameElement}catch(y){}c&&o()}i[e](f+"DOMContentLoaded",r,u),i[e](f+s,r,u),n[e](f+"load",r,u)}}
 
 //https://gist.github.com/991057 by Jed Schmidt with modifications
